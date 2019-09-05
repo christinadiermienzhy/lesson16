@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/style/style.css">
+
+</head>
+<body>
+<script type = "text/javascript">
+	const menuComponents = [ 
+							'Action',
+							'Another action',
+							'Submenu',
+								['Submenu action',
+								'Another submenu action',
+								'Subsubmenu',
+									['action1',
+									'action2',
+									'action3'],
+								'Second subsubmenu',
+									['action11',
+									'action12',
+									'action13']],
+							'Submenu2',
+								['action111',
+								'action112',
+								'action113']
+							];
+const createMenu = function (arr){
+	const headerBlock = document.createElement ('header') ;
+	const navigationBlock = document.createElement ('nav') ;
+	const additionalBlock=  document.createElement ('div') ;
+	const menuTitle = document.createElement ('ul');
+	additionalBlock.classList = 'box';
+	menuTitle.classList='boxList';
+	const textTitle = document.createElement ('p');
+	textTitle.innerText = 'Dropdown link';
+	document.body.prepend(headerBlock);
+	document.body.firstElementChild.prepend(navigationBlock);
+	document.body.firstElementChild.firstElementChild.prepend(additionalBlock);
+	document.body.firstElementChild.firstElementChild.firstElementChild.prepend(menuTitle);
+	document.body.firstElementChild.firstElementChild.firstElementChild.firstElementChild.prepend(textTitle);	
+
+	for (let i=0; i<arr.length;i++){
+			if ((!Array.isArray(arr[i+1]))&&!Array.isArray(arr[i])){
+				const item=document.createElement('li');
+				const itemClass=item.classList='item'+i;
+				const itemLink=document.createElement('a');
+				itemLink.href='https://ru.wikipedia.org';
+				itemLink.classList='link'+i;
+				itemLink.innerText=arr[i];
+				document.body.getElementsByClassName('boxList')[0].append(item);
+				document.body.getElementsByClassName(itemClass)[0].append(itemLink);
+				
+			}else if (Array.isArray(arr[i])){
+				continue;
+			} else {
+				const item=document.createElement('li');
+				const currentItemClass=item.classList='item'+i;
+				document.body.getElementsByClassName('boxList')[0].append(item);
+				const itemLink=document.createElement('a');
+				itemLink.classList='link'+i;
+				itemLink.innerText=arr[i];
+				itemLink.href='#';
+				document.body.getElementsByClassName(currentItemClass)[0].append(itemLink);
+				const submenuList = document.createElement('ul');
+				const submenuClass = submenuList.classList='submenuList'+i;
+				document.body.getElementsByClassName(currentItemClass)[0].append(submenuList);
+					for (let y=0;y<arr[i+1].length;y++){
+						if ((!Array.isArray(arr[i+1][y+1]))&&!Array.isArray(arr[i+1][y])){
+							const subItem=document.createElement('li');
+							const subItemClass=subItem.classList='subItem'+y+i;
+							document.body.getElementsByClassName(submenuClass)[0].append(subItem);
+							const itemLink=document.createElement('a');
+							itemLink.classList='sublink'+y;
+							itemLink.innerText=arr[i+1][y];
+							itemLink.href='https://ru.wikipedia.org';
+							document.body.getElementsByClassName(subItemClass)[0].append(itemLink);
+						} else if (Array.isArray(arr[i+1][y])){
+							continue;
+						}else{
+							const subItem=document.createElement('li');
+							const subItemClass=subItem.classList='subItem'+y;
+							document.body.getElementsByClassName(submenuClass)[0].append(subItem);
+							const itemLink=document.createElement('a');
+							itemLink.classList='subitemlink'+y;
+							itemLink.href='#';
+							itemLink.innerText=arr[i+1][y];
+							document.body.getElementsByClassName(subItemClass)[0].append(itemLink);
+							const subsubmenuList=document.createElement('ul');
+							const subsubmenuClass = subsubmenuList.classList='subsubmenu'+y;
+							document.body.getElementsByClassName(subItemClass)[0].append(subsubmenuList);
+							 for (let z=0;z<arr[i+1][y+1].length;z++){
+							 	const subsubitem=document.createElement('li');
+							 	const subsubitemClass=subsubitem.classList='subsubitem'+y+z;
+							 	document.body.getElementsByClassName(subsubmenuClass)[0].append(subsubitem);
+							 	const itemLink=document.createElement('a');
+								const itemLinkClass= itemLink.classList='subsubitemlink'+z;
+								itemLink.href='https://ru.wikipedia.org';
+								itemLink.innerText=arr[i+1][y+1][z];
+								document.body.getElementsByClassName(subsubitemClass)[0].append(itemLink);
+							}
+						}						
+					}
+				}
+			}
+		}
+createMenu(menuComponents);
+</script>
+</body>
+</html>

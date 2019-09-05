@@ -1,0 +1,160 @@
+body, ul,li, p{
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
+}
+body {
+	background-color: #222222;
+	font-size: 18px;
+	color: white;
+}
+header{
+	width: 100%;
+	height: 15%;
+	background-color: #2F2F2F;
+
+}
+li {
+	list-style:none;
+}
+a, a:visited, a:visited:active, a:link:active, a:link {
+	text-decoration: none;
+	color:white;
+	display: block;
+}
+.box{
+  display:inline-block;
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+.boxList{
+	position: absolute;
+	width:200px;
+}
+.boxList p, 
+.link2, 
+.link4{
+	position: relative; 
+	padding-right: 80px;
+	box-sizing: border-box;
+}
+.boxList p::after, 
+.link2::after, 
+.link4::after{
+	content: ''; 
+    position: absolute; 
+    right: 70px; 
+    top: 50%; 
+    border: 5px solid transparent; 
+    border-top: 5px solid white;
+}
+.subitemlink2, 
+.subitemlink4{
+	position: relative; 
+	padding-right: 15px;
+	box-sizing: border-box;
+}
+.subitemlink2::after, 
+.subitemlink4::after{
+	content: ''; 
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    border: 5px solid transparent; 
+    border-top: 5px solid white;
+}
+
+.item0, 
+.item1, 
+.item2, 
+.item4, 
+.submenuList2, 
+.submenuList4, 
+.subsubmenu2, 
+.subsubmenu4{
+	display: none;
+	
+}
+.item0, 
+.item1, 
+.item2, 
+.item4{
+	width: 200px;
+	padding:10px 0px 10px 20px;
+	box-sizing: border-box;
+}
+.submenuList2, 
+.submenuList4, 
+.subsubmenu2, 
+.subsubmenu4{
+	width: 200px;
+}
+
+.submenuList2 li, 
+.subsubmenu2 li, 
+.subsubmenu4 li,
+.submenuList4 li{
+	width: 100%;
+	padding:10px 0px 10px 20px;
+	box-sizing: border-box;
+	z-index: 10;
+}
+ li a {
+ 	width: 100%;
+ 	height: 100%;
+ 	display: block;
+ }
+
+.item2,
+.item4,
+.subItem4,
+.subItem2 {
+	position:relative;
+}
+
+.submenuList2, 
+.submenuList4,
+.subsubmenu2,
+.subsubmenu4{
+	position:absolute;
+	left: 98%;
+  	top: 5px;
+  	border: 1px solid #3B3B3B;
+}
+.box:hover .item0,
+.box:hover .item1,
+.box:hover .item2,
+.box:hover .item4, 
+.item2:hover .submenuList2, 
+.item4:hover .submenuList4, 
+.subItem2:hover .subsubmenu2,
+.subItem4:hover .subsubmenu4{
+	display: block;
+	background-color: #222222;
+}
+
+
+.box .item0:hover,
+.box .item1:hover, 
+.box .item2:hover,
+.box .item4:hover,
+.submenuList2 .subItem02:hover,
+.submenuList2 .subItem12:hover,
+.submenuList2 .subItem2:hover,
+.submenuList2 .subItem4:hover,
+.subsubmenu2 .subsubitem20:hover,
+.subsubmenu2 .subsubitem21:hover,
+.subsubmenu2 .subsubitem22:hover,
+.subsubmenu4 .subsubitem40:hover,
+.subsubmenu4 .subsubitem41:hover,
+.subsubmenu4 .subsubitem42:hover,
+.submenuList4 .subItem04:hover,
+.submenuList4 .subItem14:hover,
+.submenuList4 .subItem24:hover{
+	background-color: #385A7F;
+}
+
+
